@@ -15,7 +15,7 @@ const fetchRiskLevelData = async () => {
         return
     }
     try {
-        const response = await axios.get(`http://localhost:8080/postgress/risklevel?index=${store.liveUVIndexTracker ? store.liveUVIndexTracker : 0}`)
+        const response = await axios.get(`https://sunwarriorsbackend-production.up.railway.app/postgress/risklevel?index=${store.liveUVIndexTracker ? store.liveUVIndexTracker : 0}`)
         if (response.status == 200) {
             colour_code.value = response.data.colour_code.toLowerCase()
             level_name.value = response.data.level_name
