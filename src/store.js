@@ -1,3 +1,5 @@
-import { ref } from 'vue'
+import { reactive } from 'vue'
 
-export const liveUVIndexTracker = ref(null)
+export const store = reactive({
+  liveUVIndexTracker: 0,
+})

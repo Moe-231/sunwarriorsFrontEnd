@@ -1,9 +1,8 @@
 <script setup>
-import { liveUVIndexTracker } from '@/store';
+import { store } from '@/store';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 const liveUVIndex = ref(null)
-
 const isMenuVisible = ref(false)
 
 const toggleMenu = () => {
@@ -32,7 +31,7 @@ const fetchUV = async () => {
         if (response.status == 200) {
             console.log(response.data.value)
             liveUVIndex.value = response.data.value
-            liveUVIndexTracker.value = response.data.value
+            store.liveUVIndexTracker = response.data.value
         }
 
     } catch (error) {
@@ -64,7 +63,7 @@ onMounted(async () => {
                 <div class="hidden lg:flex h-full w-[70%] p-3 items-center justify-around">
                     <!-- Navigation Link -->
                     <span class="flex items-center bg-white rounded-2xl">
-                        <router-link to="/uvtacker" aria-label="Home navigation link">
+                        <router-link to="/uvtracker" aria-label="Home navigation link">
                             <span class="flex items-center justify-between cursor-pointer mx-5 p-2 ">
 
                                 <span class="hover:underline underline-offset-8 transition">UV Tracker</span>
