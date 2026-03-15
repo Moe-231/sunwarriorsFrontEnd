@@ -9,7 +9,7 @@ const toggleMenu = () => {
 </script>
 
 <template>
-    <nav class="relative flex bg-black">
+    <nav class="relative flex bg-black shadow-2xl">
         <!-- Nav Bar Left Section-->
         <div class="flex items-center justify-between overflow-hidden">
             <span class="flex items-center my-1">
@@ -27,7 +27,7 @@ const toggleMenu = () => {
                 <div class="hidden lg:flex h-full w-[70%] p-3 items-center justify-around">
                     <!-- Navigation Link -->
                     <span class="flex items-center bg-white rounded-2xl">
-                        <router-link to="/" aria-label="Home navigation link">
+                        <router-link to="/uvtacker" aria-label="Home navigation link">
                             <span class="flex items-center justify-between cursor-pointer mx-5 p-2 ">
 
                                 <span class="hover:underline underline-offset-8 transition">UV Tracker</span>
@@ -73,12 +73,12 @@ const toggleMenu = () => {
                 </div>
 
                 <!-- Mobile Menu -->
-                <div class="relative border border-white flex justify-end w-full items-center lg:hidden">
+                <div class="relative flex justify-end w-full items-center lg:hidden">
                     <div class="mr-2">
                         <i class="pi pi-bars p-2 border rounded-2xl hover:bg-white cursor-pointer hover:text-black!"
                             style="color: white;" @click="toggleMenu"></i>
                     </div>
-                    <div class="absolute w-[50%] bg-white p-2 top-0" v-if="isMenuVisible">
+                    <div class="absolute w-[50%] bg-white p-2 top-0 border transition shadow" v-if="isMenuVisible">
                         <div>
                             <div class="flex flex-col">
                                 <!-- Close Icon -->
