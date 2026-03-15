@@ -14,7 +14,6 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 import { Bar } from 'vue-chartjs';
 import HeatMap from '@/components/heatMap.vue';
-import axios from 'axios';
 const colorCode = ref('red')
 const totalcases = ref(0)
 const curedcases = ref(0)
@@ -48,9 +47,32 @@ const chartOptions = {
 
 // const fetchStatistic = async () => {
 //     try {
-//         const response = await axios.get('http://localhost:8080/postgress/cancerincidence')
-//         if (response) {
-//             console.log("Postgress response is", response)
+//         const response = await axios.get('myapiaddress')
+//         if (response.status == 200) {
+//             console.log("resese")
+//             console.log(response)
+//             Acases.value = response?.data?.usersCount ?? 0
+//             Bcases.value = response?.data?.eventsCount ?? 0
+//             Ccases.value = response?.data?.organizers ?? 0
+//             explorerCount.value = response?.data?.explorers ?? 0
+//             chartData.value = {
+//                 ...chartData.value,
+//                 datasets: [
+//                     {
+//                         ...chartData.value.datasets[0],
+//                         data: [userCount.value, eventsCount.value]
+//                     }
+//                 ]
+//             }
+//             chartDataTwo.value = {
+//                 ...chartDataTwo.value,
+//                 datasets: [
+//                     {
+//                         ...chartDataTwo.value.datasets[0],
+//                         data: [organizerCount.value, explorerCount.value]
+//                     }
+//                 ]
+//             }
 //         }
 //     } catch (error) {
 //         console.log("Error fetching statistics ", error)
@@ -63,7 +85,7 @@ const chartOptions = {
 // onMounted(async () => {
 //     await fetchStatistic()
 
-// })
+// }
 
 
 </script>

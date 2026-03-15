@@ -8,7 +8,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/', name: 'Home', component: Home, meta: { title: 'Home' } },
-    { path: '/uvtracker', name: 'Uv Tracker', component: UvTacker, meta: { title: 'UV Tracker' } },
+    { path: '/uvtacker', name: 'Uv Tracker', component: UvTacker, meta: { title: 'UV Tracker' } },
     { path: '/uvtutor', name: 'Uv Tutor', component: UvTutor, meta: { title: 'UV Tutor' } },
     { path: '/404', name: '404', component: AccessDenied, meta: { title: 404 } },
   ],
