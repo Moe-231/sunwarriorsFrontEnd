@@ -1,11 +1,48 @@
 <script setup>
-import { ref } from 'vue';
+import { liveUVIndexTracker } from '@/store';
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+const liveUVIndex = ref(null)
 
 const isMenuVisible = ref(false)
 
 const toggleMenu = () => {
     isMenuVisible.value = !isMenuVisible.value
 }
+
+const getLocation = () => {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject)
+    })
+}
+
+const fetchUV = async () => {
+    try {
+
+        const position = await getLocation()
+
+        const lat = position.coords.latitude
+        const lon = position.coords.longitude
+
+        const response = await axios.get(
+            `https://sunwarriorsbackend-production.up.railway.app/openweather/uv?lat=${lat}&lon=${lon}`
+        )
+        console.log(response)
+
+        if (response.status == 200) {
+            console.log(response.data.value)
+            liveUVIndex.value = response.data.value
+            liveUVIndexTracker.value = response.data.value
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+onMounted(async () => {
+    await fetchUV()
+})
 </script>
 
 <template>
@@ -63,11 +100,18 @@ const toggleMenu = () => {
                 <!-- Functionalities -->
                 <div class="hidden lg:flex h-full w-[30%] items-center justify-end mr-2">
                     <div class="flex items-center">
-                        <div class="flex items-center space-x-2 cursor-default p-4">
-                            <span class="text-white">Live Index: </span>
+                        <div class="flex items-center space-x-2 cursor-default p-4 mr-2">
                             <span class="relative pi pi-sun text-2xl text-yellow-500" style="color: yellow">
-                                <span class="absolute -top-4 text-red-500 font-bold">2</span>
+                                <span v-if="liveUVIndex" class="absolute -top-6 text-red-500 font-bold">{{
+                                    liveUVIndex }}
+                                </span>
+                                <span v-else class="absolute -top-6 text-red-500 font-bold">
+                                    <div
+                                        class="w-5 h-5 border-4 border-blue-200 rounded-full animate-spin border-t-red-500">
+                                    </div>
+                                </span>
                             </span>
+                            <span class="text-white">UV</span>
                         </div>
                     </div>
                 </div>
