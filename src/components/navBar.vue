@@ -35,7 +35,7 @@ const toggleMenu = () => {
                         </router-link>
                     </span>
                     <span class="flex items-center justify-center bg-white rounded-2xl">
-                        <router-link to="/" aria-label="Home navigation link">
+                        <router-link to="/uvtutor" aria-label="Home navigation link">
                             <span class="flex items-center justify-between cursor-pointer mx-5 p-2 ">
 
                                 <span class="hover:underline underline-offset-8 transition">UV Tutor</span>

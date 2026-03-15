@@ -10,6 +10,8 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "@syncfusion/ej2-base": "^32.2.9",
+    "@syncfusion/ej2-vue-heatmap": "^32.2.3",
     "@tailwindcss/vite": "^4.2.1",
     "axios": "^1.13.6",
     "chart.js": "^4.5.1",
