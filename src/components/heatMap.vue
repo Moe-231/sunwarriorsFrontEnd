@@ -43,7 +43,7 @@ const formatData = (dbData) => {
 
 const fetchHeatMapData = async () => {
     try {
-        const response = axios.get('https://sunwarriorsbackend-production.up.railway.app/postgress/uvhistorical')
+        const response = await axios.get('https://sunwarriorsbackend-production.up.railway.app/postgress/uvhistorical')
         // const response = await axios.get('http://localhost:8080/postgress/uvhistorical')
         console.log("UV Historical response is ", response)
         if (response.status == 200) {
