@@ -50,8 +50,10 @@ onMounted(async () => {
         <div class="flex items-center justify-between overflow-hidden">
             <span class="flex items-center my-1">
                 <router-link to="/" aria-label="Home Button">
-                    <img class="animate-spin [animation-duration:15s]" src="/src/assets/sunIcon.png" alt="Logo image"
-                        aria-label="Home Logo" height="20px" width="120px">
+                    <img class="relative animate-spin [animation-duration:15s]" src="/src/assets/sunIcon.png"
+                        alt="Logo image" aria-label="Home Logo" height="20px" width="120px">
+                    <span
+                        class="absolute top-10 left-6 lg:top-12 lg:left-8 font-bold hover:-translate-y-1 transition">Home</span>
                 </router-link>
 
             </span>
@@ -75,14 +77,6 @@ onMounted(async () => {
                             <span class="flex items-center justify-between cursor-pointer mx-5 p-2 ">
 
                                 <span class="hover:underline underline-offset-8 transition">UV Tutor</span>
-                            </span>
-                        </router-link>
-                    </span>
-                    <span class="flex items-center justify-center bg-white rounded-2xl">
-                        <router-link to="/" aria-label="Home navigation link">
-                            <span class="flex items-center justify-between cursor-pointer mx-5 p-2 ">
-
-                                <span class="hover:underline underline-offset-8 transition">Tailored Advice</span>
                             </span>
                         </router-link>
                     </span>
@@ -121,7 +115,8 @@ onMounted(async () => {
                         <i class="pi pi-bars p-2 border rounded-2xl hover:bg-white cursor-pointer hover:text-black!"
                             style="color: white;" @click="toggleMenu"></i>
                     </div>
-                    <div class="absolute w-[50%] bg-white p-2 top-0 border transition shadow" v-if="isMenuVisible">
+                    <div class="absolute w-[50%] bg-white p-2 top-0 border transition shadow animate-ping fadeInAnim"
+                        style="animation-iteration-count: 1" v-if="isMenuVisible">
                         <div>
                             <div class="flex flex-col">
                                 <!-- Close Icon -->
@@ -132,7 +127,7 @@ onMounted(async () => {
                                 <!-- Index Viewer -->
                                 <div
                                     class="flex items-center justify-center space-x-2 cursor-default pt-5 pb-4 border-b-2">
-                                    <span class="relative pi pi-sun text-2xl text-yellow-500" style="color: yellow">
+                                    <span class="relative pi pi-sun text-2xl text-yellow-500" style="color: black">
                                         <span v-if="liveUVIndex"
                                             class="absolute -top-4 text-red-500 font-bold text-md">{{
                                                 liveUVIndex }}
@@ -156,11 +151,6 @@ onMounted(async () => {
                                                 class="hover:underline cursor-pointer underline-offset-8">UV
                                                 Tutor</span></li>
                                     </router-link>
-                                    <router-link @click="toggleMenu" to="/" aria-label="Home navigation link">
-                                        <li class="flex justify-center"><span
-                                                class="hover:underline cursor-pointer underline-offset-8">Tailored
-                                                Advice</span></li>
-                                    </router-link>
                                     <router-link @click="toggleMenu" to="/sunshop" aria-label="Home navigation link">
                                         <li class="flex justify-center"><span
                                                 class="hover:underline cursor-pointer underline-offset-8">Sun
@@ -178,4 +168,21 @@ onMounted(async () => {
 
 </template>
 
-<style scoped></style>
+<style scoped>
+.fadeInAnim {
+    animation-name: animationFrame;
+    transition-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-duration: 450ms;
+}
+
+@keyframes animationFrame {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100;
+    }
+}
+</style>

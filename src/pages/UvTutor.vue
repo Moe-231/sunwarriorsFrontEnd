@@ -62,7 +62,7 @@ const fetchCancerReport = async () => {
                 datasets: [
                     {
                         ...chartData.value.datasets[0],
-                        data: [parseInt(response.data[0].total_cases), parseInt(response.data[1].total_cases)]
+                        data: [parseInt(response.data[0].final_total), parseInt(response.data[1].final_total)]
                     }
                 ]
             }
