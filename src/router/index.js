@@ -1,5 +1,6 @@
 import AccessDenied from '@/pages/AccessDenied.vue'
 import Home from '@/pages/Home.vue'
+import SunShop from '@/pages/SunShop.vue'
 import UvTacker from '@/pages/UvTacker.vue'
 import UvTutor from '@/pages/UvTutor.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -10,6 +11,7 @@ const router = createRouter({
     { path: '/', name: 'Home', component: Home, meta: { title: 'Home' } },
     { path: '/uvtracker', name: 'Uv Tracker', component: UvTacker, meta: { title: 'UV Tracker' } },
     { path: '/uvtutor', name: 'Uv Tutor', component: UvTutor, meta: { title: 'UV Tutor' } },
+    { path: '/sunshop', name: 'Sun Shop', component: SunShop, meta: { title: 'Sun Shop' } },
     { path: '/404', name: '404', component: AccessDenied, meta: { title: 404 } },
   ],
 })

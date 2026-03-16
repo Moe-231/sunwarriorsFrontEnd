@@ -87,7 +87,7 @@ onMounted(async () => {
                         </router-link>
                     </span>
                     <span class="flex items-center justify-center bg-white rounded-2xl">
-                        <router-link to="/" aria-label="Home navigation link">
+                        <router-link to="/sunshop" aria-label="Home navigation link">
                             <span class="flex items-center justify-between cursor-pointer mx-5 p-2 ">
 
                                 <span class="hover:underline underline-offset-8 transition">Sun Shop</span>
@@ -132,19 +132,26 @@ onMounted(async () => {
                                 <!-- Index Viewer -->
                                 <div
                                     class="flex items-center justify-center space-x-2 cursor-default pt-5 pb-4 border-b-2">
-                                    <span class="text-black">Live Index: </span>
                                     <span class="relative pi pi-sun text-2xl text-yellow-500" style="color: yellow">
-                                        <span class="absolute -top-4 text-red-500 font-bold text-[20px]">2</span>
+                                        <span v-if="liveUVIndex"
+                                            class="absolute -top-4 text-red-500 font-bold text-md">{{
+                                                liveUVIndex }}
+                                        </span>
+                                        <span v-else class="absolute -top-6 text-red-500 font-bold">
+                                            <div
+                                                class="w-5 h-5 border-4 border-blue-200 rounded-full animate-spin border-t-red-500">
+                                            </div>
+                                        </span>
                                     </span>
                                 </div>
                                 <!-- Navigations -->
                                 <ul class="flex flex-col p-2 space-y-2 justify-center">
-                                    <router-link @click="toggleMenu" to="/" aria-label="Home navigation link">
+                                    <router-link @click="toggleMenu" to="/uvtracker" aria-label="Home navigation link">
                                         <li class="flex justify-center"><span
                                                 class="hover:underline cursor-pointer underline-offset-8">UV
                                                 Tracker</span></li>
                                     </router-link>
-                                    <router-link @click="toggleMenu" to="/" aria-label="Home navigation link">
+                                    <router-link @click="toggleMenu" to="/uvtutor" aria-label="Home navigation link">
                                         <li class="flex justify-center"><span
                                                 class="hover:underline cursor-pointer underline-offset-8">UV
                                                 Tutor</span></li>
@@ -154,7 +161,7 @@ onMounted(async () => {
                                                 class="hover:underline cursor-pointer underline-offset-8">Tailored
                                                 Advice</span></li>
                                     </router-link>
-                                    <router-link @click="toggleMenu" to="/" aria-label="Home navigation link">
+                                    <router-link @click="toggleMenu" to="/sunshop" aria-label="Home navigation link">
                                         <li class="flex justify-center"><span
                                                 class="hover:underline cursor-pointer underline-offset-8">Sun
                                                 Shop</span></li>
